@@ -3,6 +3,7 @@ import { useRef, useEffect } from 'react'
 import Image from 'next/image'
 
 import styles from './Hero.module.scss'
+import { projectArray } from '@/app/utils/projectArray'
 import {
     titleAnimation,
     textAnimation,
@@ -10,7 +11,7 @@ import {
     imageZoom,
 } from './animations'
 
-const ProjectDescription = () => {
+const ProjectDescription = ({params}) => {
     const imageRef = useRef(null)
     const overlayRef = useRef(null)
     const titleRef = useRef(null)
@@ -21,7 +22,7 @@ const ProjectDescription = () => {
         textAnimation(textRefs.current)
         fadeInOverlay(overlayRef.current)
     }, [])
-
+    console.log(params.id)
     return (
         <section className={styles.hero}>
             <div ref={overlayRef} className={styles.hero__overlay}></div>
